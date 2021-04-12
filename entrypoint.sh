@@ -32,10 +32,12 @@ if [[ ! -f "${GITHUB_WORKSPACE}/sonar-project.properties" ]]; then
     -Dsonar.password=${SONAR_PASSWORD} \
     -Dsonar.sources=. \
     -Dsonar.sourceEncoding=UTF-8
+    -Dsonar.working.directory=/tmp/_work/sonarqube/${SONAR_PROJECTNAME}
 else
   sonar-scanner ${DEBUG} \
     -Dsonar.host.url=${INPUT_HOST} \
     -Dsonar.projectBaseDir=${INPUT_PROJECTBASEDIR} \
     -Dsonar.login=${INPUT_LOGIN} \
     -Dsonar.password=${SONAR_PASSWORD}
+    -Dsonar.working.directory=/tmp/_work/sonarqube/${SONAR_PROJECTNAME}
 fi
